@@ -12,21 +12,7 @@ body {
   color: #111827;
 }
 
-.dashboard-page {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-}
 
-.sidebar {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(24px);
-  border-right: 1px solid rgba(226, 232, 240, 0.9);
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
 .logo {
   margin: 0;
@@ -38,43 +24,83 @@ body {
   color: transparent;
 }
 
-.sidebar-subtitle {
-  margin-top: 8px;
-  color: #64748b;
-  font-size: 14px;
+.dashboard-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .sidebar-nav {
-  margin-top: 48px;
+  margin-top: 52px;
   display: grid;
   gap: 12px;
 }
 
 .sidebar-nav span {
-  padding: 14px 16px;
-  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 16px;
+  border-radius: 18px;
   color: #64748b;
-  font-weight: 600;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.sidebar-nav span:hover {
+  background: #f1f5f9;
+  color: #111827;
+  transform: translateX(4px);
 }
 
 .sidebar-nav .active {
-  background: #111827;
+  background: linear-gradient(135deg, #111827, #1e293b);
   color: white;
-  box-shadow: 0 14px 28px rgba(17, 24, 39, 0.22);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.22);
+}
+
+.nav-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(226, 232, 240, 0.7);
+  font-size: 15px;
+}
+
+.sidebar-nav .active .nav-icon {
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .logout-btn {
   border: 0;
-  background: #f1f5f9;
-  color: #111827;
-  padding: 14px;
-  border-radius: 16px;
-  font-weight: 700;
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 15px;
+  border-radius: 18px;
+  font-weight: 900;
   cursor: pointer;
 }
 
 .logout-btn:hover {
-  background: #e2e8f0;
+  background: #fecaca;
+  transform: translateY(-1px);
 }
 
 .dashboard-main {
@@ -342,4 +368,22 @@ body {
 .profile-info p {
   margin: 8px 0;
   font-size: 14px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px;
+}
+
+@media (max-width: 950px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
 }
